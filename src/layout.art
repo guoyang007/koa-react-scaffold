@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{ block 'title' }}my site{{/block}}</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+ 	{{block 'head'}}
+    {{/block}}
+</head>
+<body>
+	<div class="app-container">
+		{{block 'content'}}{{/block}}
+	</div>
+</body>
+</html>

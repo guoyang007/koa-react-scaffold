@@ -2,32 +2,40 @@
 const koa = require('koa');
 const logger = require('koa-logger');
 const serve = require('koa-static');
-const middleware = require('koa-webpack');
+const render = require('koa-ejs');
+
+const historyFallback = require('koa2-history-api-fallback')
 const router = require('./routes.js');
 const path = require('path');
 const app = module.exports = new koa();
-const render = require('koa-art-template');
-const config = require('./webpack.config.js');
 
-
+// router to front-end
+app.use(historyFallback())
 // Logger
 app.use(logger());
 
-app.use(middleware({
-    config: config
-}))
+
+if (process.env.NODE_ENV!='production') {
+	const middleware = require('koa-webpack');
+	const Webpack=require('webpack')
+	const config = require('./cfg/webpack.dev.js');
+
+	let compiler=Webpack(config)
+	app.use(middleware({
+		compiler:compiler
+	}))
+}
 
 render(app, {
-    root: path.join(__dirname, 'dist/views/'),
-    extname: '.html',
-    debug: process.env.NODE_ENV !== 'production'
+    root: process.env.NODE_ENV==='production'? path.join(__dirname, './public') :path.join(__dirname, './src'),
+    extname: '.html'
 });
+
+app.use(serve(path.join(__dirname, 'public')));
 
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-// Serve static files
-app.use(serve(path.join(__dirname, 'public')));
 
 if (!module.parent) {
     app.listen(3000);

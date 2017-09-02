@@ -27,6 +27,30 @@
 * `npm run build-assets` for front-end assets building
 * `npm run serve` for production
 
+#### Tips: lock versions by `lockdown`
+
+##### One Time Project Setup
+
+*1. npm install the version of lockdown you want: `npm install --save lockdown`
+*2. add a line to your package.json file: "scripts": { "preinstall": "lockdown" }
+*3. generate a lockdown.json: 
+	
+	```
+	node_modules/.bin/lockdown-relock
+	```
+
+*4. commit: `git add package.json lockdown.json && git commit -m "be safe"`
+
+##### Adding new modules
+
+*1. npm install the specific dependencies of your app npm install --save foo@0.8.1
+*2. re-generate your lockdown.json: 
+	
+	```
+	node node_modules/.bin/lockdown-relock
+	```
+*3. commit: git add package.json lockdown.json && git commit -m "be safe"
+
 
 
 

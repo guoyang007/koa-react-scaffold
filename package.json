@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "preinstall": "lockdown",
     "start": "nodemon app.js --exec babel-node",
     "clean": "rimraf public/",
     "build-assets": "npm run clean && webpack --config cfg/webpack.dll.babel.js && webpack --config cfg/webpack.prod.babel.js",

@@ -5,9 +5,10 @@
   "scripts": {
     "start": "nodemon app.js --exec babel-node",
     "clean": "rimraf public/",
-    "build-assets": "npm run clean && webpack --config cfg/webpack.dll.babel.js && webpack --config cfg/webpack.prod.babel.js",
+    "build-dll": "webpack --config cfg/webpack.dll.babel.js",
+    "build-assets": "webpack --config cfg/webpack.prod.babel.js",
     "serve": "NODE_ENV=production babel-node app.js",
-    "test": "mocha"
+    "test": "mocha --compilers js:babel-core/register -t 5000"
   },
   "dependencies": {
     "axios": "^0.16.2",

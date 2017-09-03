@@ -15,7 +15,7 @@ app.use(historyFallback())
 app.use(logger());
 
 
-if (process.env.NODE_ENV!='production') {
+if (process.env.NODE_ENV!=='production') {
 	const middleware = require('koa-webpack');
 	const Webpack=require('webpack')
 	const config = require('./cfg/webpack.dev.js');

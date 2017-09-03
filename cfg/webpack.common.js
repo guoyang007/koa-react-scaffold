@@ -16,7 +16,7 @@ module.exports = {
         })
     ],
     output: {
-        filename: '[name].bundle.[chunkhash].js',
+        filename: '[name].bundle.[hash].js',
         path: path.resolve(__dirname, '../public')
     },
     module: {

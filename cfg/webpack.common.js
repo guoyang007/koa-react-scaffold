@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const path = require('path');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 
@@ -10,7 +9,6 @@ module.exports = {
         extensions: ['.jsx', '.js']
     },
     plugins: [
-        new CleanWebpackPlugin(['public']),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, '../src/index.html')
         })

@@ -2,6 +2,7 @@
 
 * **supports ES6 in all files, whether the webpack config file or node files**
 
+
 #### a complete application
 
 * server: 
@@ -26,6 +27,14 @@
 * `npm run start` for development
 * `npm run build-assets` for front-end assets building
 * `npm run serve` for production
+
+### how to use
+
+* first: `npm install`
+* second: `npm run build-dll`
+* third:  `npm start` just starts your site
+
+**note** : the `npm run build-dll` must be executed once before `npm run start` or `npm run build-assets` 
 
 #### Tips: Maybe you can have a try with `lockdown` to lock versions
 

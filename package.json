@@ -16,6 +16,7 @@
     "co-body": "^4.0.0",
     "co-views": "^2.1.0",
     "file-loader": "^0.11.2",
+    "image-webpack-loader": "^3.4.0",
     "koa": "^2.0.0-alpha.8",
     "koa-compress": "^1.0.6",
     "koa-ejs": "^4.1.0",

@@ -25,8 +25,10 @@ module.exports = {
                 exclude: /node_modules/,
                 use: 'babel-loader?cacheDirectory=true'
             },
-            { test: /\.(woff|woff2|eot|ttf|otf)$/i, use: ['url-loader?limit=8192&name=[name].[ext]'] },
-            { test: /\.(jpe?g|png|gif|svg)$/i, use: ['url-loader?limit=8192&name=[name].[ext]'] }
+            { test: /\.(woff|woff2|eot|ttf|otf)$/i,
+              use: ['url-loader?limit=8192&name=[hash:8].[name].[ext]','image-webpack-loader'] },
+            { test: /\.(jpe?g|png|gif|svg)$/i,
+              use: ['url-loader?limit=8192&name=[hash:8].[name].[ext]','image-webpack-loader'] }
         ]
     },
     plugins:[

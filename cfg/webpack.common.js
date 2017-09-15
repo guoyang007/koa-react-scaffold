@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const path = require('path');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 
@@ -10,7 +9,7 @@ module.exports = {
         extensions: ['.jsx', '.js']
     },
     output: {
-        filename: '[name].bundle.[chunkhash].js',
+        filename: '[name].bundle.[hash].js',
         path: path.resolve(__dirname, '../public')
     },
     module: {
@@ -21,8 +20,10 @@ module.exports = {
                 exclude: /node_modules/,
                 use: 'babel-loader?cacheDirectory=true'
             },
-            { test: /\.(woff|woff2|eot|ttf|otf)$/i, use: ['url-loader?limit=8192&name=[name].[ext]'] },
-            { test: /\.(jpe?g|png|gif|svg)$/i, use: ['url-loader?limit=8192&name=[name].[ext]'] }
+            { test: /\.(woff|woff2|eot|ttf|otf)$/i,
+              use: ['url-loader?limit=8192&name=[hash:8].[name].[ext]','image-webpack-loader'] },
+            { test: /\.(jpe?g|png|gif|svg)$/i,
+              use: ['url-loader?limit=8192&name=[hash:8].[name].[ext]','image-webpack-loader'] }
         ]
     },
     plugins:[

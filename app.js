@@ -15,7 +15,7 @@ app.use(historyFallback())
 app.use(logger());
 
 
-if (process.env.NODE_ENV!='production') {
+if (process.env.NODE_ENV!=='production') {
 	const middleware = require('koa-webpack');
 	const Webpack=require('webpack')
 	const config = require('./cfg/webpack.dev.js');
@@ -31,7 +31,9 @@ render(app, {
     extname: '.html'
 });
 
-app.use(serve(path.join(__dirname, 'public')));
+app.use(serve(path.join(__dirname, 'public'),{
+	maxage:100 * 24 * 60 * 60
+}));
 
 app.use(router.routes());
 app.use(router.allowedMethods());

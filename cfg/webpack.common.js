@@ -9,12 +9,6 @@ module.exports = {
     resolve: {
         extensions: ['.jsx', '.js']
     },
-    plugins: [
-        new CleanWebpackPlugin(['public']),
-        new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, '../src/index.html')
-        })
-    ],
     output: {
         filename: '[name].bundle.[chunkhash].js',
         path: path.resolve(__dirname, '../public')

@@ -1,7 +1,7 @@
 const webpack = require('webpack')
 const library = '[name]_lib'
 const path = require('path')
-const BabiliPlugin = require("babili-webpack-plugin");
+const MinifyPlugin = require("babel-minify-webpack-plugin");
 
 module.exports = {
     node: {
@@ -37,7 +37,10 @@ module.exports = {
             // This must match the output.library option above
             name: library
         }),
-        new BabiliPlugin()
+        new MinifyPlugin({
+            removeConsole:true,
+            removeDebugger:true
+        })
     ]
 
 }

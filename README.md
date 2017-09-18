@@ -24,17 +24,21 @@
 
 #### a thorough NPM scripts
 
-* `npm run start` for development
-* `npm run build-assets` for front-end assets building
-* `npm run serve` for production
+recommend to use `yarn`, because of faster speed and dependencies version management.
+
+migrating from `npm` to `yarn` is easy, just replacing `npm` with `yarn` is OK.
+
+* `yarn run start` for development
+* `yarn run build-assets` for front-end assets building
+* `yarn run serve` for production
 
 ### how to use
 
-* first: `npm install`
-* second: `npm run build-dll`
-* third:  `npm start` just starts your site
+* first: `yarn install`
+* second: `yarn run build-dll`
+* third:  `yarn start` just starts your site
 
-**note** : the `npm run build-dll` must be executed once before `npm run start` or `npm run build-assets` 
+**note** : the `yarn run build-dll` must be executed once before `yarn run start` or `yarn run build-assets` 
 
 #### Tips: Maybe you can have a try with `lockdown` to lock versions
 

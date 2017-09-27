@@ -22,6 +22,10 @@
 * writing separating webpack configurations for each environment
 * use `webpack-merge` to merge these configurations together
 
+#### use DLL to pack third packages
+
+using webpack.dll to precompile third packages can decrease the compilation time efficiently.
+
 #### a thorough NPM scripts
 
 recommend to use `yarn`, because of faster speed and dependencies version management.

@@ -27,9 +27,16 @@ class IndexStore {
 			}
 		})
 		let indexData= articleId==0? data.indexData :[data.indexData]
+		if(indexData.length==0){
+			indexData=[{
+				id:0,
+				content:'has no content...,please add content by yourself'
+			}]
+		}
 		runInAction("fetch data",()=>{
 			this.data = indexData;
 		})
+		
 	}
 }
 let indexStore=new IndexStore()

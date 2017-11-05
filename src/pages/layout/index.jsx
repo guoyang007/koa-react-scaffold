@@ -15,7 +15,6 @@ class Layout extends Component{
 		let {getIndexData}=this.props.indexStore;
 		let {history}=this.props.routing;
 
-
 		let Lists=()=>{
 			let arr=[]
 			getIndexData.slice().map((item,index)=>{

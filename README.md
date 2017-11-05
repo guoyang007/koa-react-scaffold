@@ -17,6 +17,7 @@
 
 	* react+react-router+mobx
 
+
 #### following the best practice to organize webpack configration files for building a production site:
 
 * writing separating webpack configurations for each environment
@@ -33,20 +34,20 @@ recommend to use `yarn`, because of faster speed and dependencies version manage
 migrating from `npm` to `yarn` is easy, just replacing `npm` with `yarn` is OK.
 
 * `yarn run start` for development
-* `yarn run build-assets` for front-end assets building
+* `yarn run build` for front-end assets building
 * `yarn run serve` for production
 
 ### how to use
 
 * first: `yarn install`
 * second: `yarn run build-dll`
-* third:  `yarn start` just starts your site
+* third: 
+	
+	* `development` mode: `yarn start` just starts your site
+	* `production` mode: `yarn run build-assets` to build the assets, and then run `npm run serve` to run your site
 
 **note** : the `yarn run build-dll` must be executed once before `yarn run start` or `yarn run build-assets` 
 
-#### Tips: Maybe you can have a try with `lockdown` to lock versions
-
-I once added `lockdown` to my project, but removed it now for that I can't stand this extra operation. I will go on to look for a better solution, and welcome you guys to discuss with me~
 
 
 

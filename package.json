@@ -7,6 +7,7 @@
     "clean": "rimraf public/",
     "build-dll": "webpack --config cfg/webpack.dll.babel.js",
     "build-assets": "webpack --config cfg/webpack.prod.babel.js",
+    "build":"yarn run build-dll && yarn run build-assets",
     "serve": "NODE_ENV=production babel-node app.js",
     "test": "mocha --compilers js:babel-core/register -t 5000"
   },

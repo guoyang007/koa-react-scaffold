@@ -1,13 +1,13 @@
 {
   "name": "scaffold",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "nodemon app.js --exec babel-node",
     "clean": "rimraf public/",
     "build-dll": "webpack --config cfg/webpack.dll.babel.js",
     "build-assets": "webpack --config cfg/webpack.prod.babel.js",
-    "build":"yarn run build-dll && yarn run build-assets",
+    "build": "yarn run build-dll && yarn run build-assets",
     "serve": "NODE_ENV=production babel-node app.js",
     "test": "mocha --compilers js:babel-core/register -t 5000"
   },
@@ -27,7 +27,6 @@
     "koa-static": "^3.0.0",
     "koa-views": "^6.0.2",
     "koa2-history-api-fallback": "0.0.5",
-    "lockdown": "0.0.8-dev",
     "mobx": "^3.2.2",
     "mobx-react": "^4.2.2",
     "mobx-react-router": "^4.0.1",

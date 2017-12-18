@@ -13,7 +13,13 @@ let dbFn = {
         
     },
     del: function(id) {
-        return articleModel.remove({ id: id })
+        if (id) {
+            return articleModel.remove({ id: id })
+        }else{
+            return articleModel.remove({},(err)=>{
+                throw new Error(err);
+            })
+        }
     },
     edit: function(data) {
         return articleModel.findOneAndUpdate({ id: data.id }, {

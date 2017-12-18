@@ -20,7 +20,7 @@ class IndexStore {
 		// for example, `/:id`
 		let id=window.location.pathname.split('/').slice(-1)[0];
 		articleId= /^\d+$/.test(id) ? id :0;
-		console.log('articleId',articleId)
+
 		let {data} =await axios.get(`/api/get`,{
 			params:{
 				id:articleId
@@ -31,12 +31,14 @@ class IndexStore {
 			indexData=[{
 				id:0,
 				content:'has no content...,please add content by yourself'
+			},{
+				id:1,
+				content:'has no content...,please add content by yourself, repeat1'
 			}]
 		}
 		runInAction("fetch data",()=>{
 			this.data = indexData;
 		})
-		
 	}
 }
 let indexStore=new IndexStore()

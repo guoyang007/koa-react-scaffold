@@ -14,27 +14,20 @@ class Layout extends Component{
 	render(){
 		let {getIndexData}=this.props.indexStore;
 		let {history}=this.props.routing;
-
-		let Lists=()=>{
-			let arr=[]
-			getIndexData.slice().map((item,index)=>{
-				arr.push(<GridArticle article={item} key={index} />)	
-				})
-			return arr
-		}
 				
-		console.log('lists',Lists())
-		console.log('data',getIndexData.slice())
 		return (
 			<div className="app-container">
-				<div className="content-left">
-					left
+				<div className="left-panel">
+					{Array.from('a'.repeat(5)).map((item,index)=>{
+						return <p key={index}>{Math.random().toString(36).substr(2, 10)}</p>
+					})}
 				</div>
-				<div className="content-middle">
-					{Lists()}
-				</div>
-				<div className="content-right">
-					right
+				<div className='content-container'>
+					{
+						getIndexData.slice().map((item,index)=>(
+							<GridArticle article={item} key={index} />
+						))
+					}
 				</div>
 			</div>
 		)

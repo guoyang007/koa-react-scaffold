@@ -16,16 +16,11 @@ class IndexStore {
 		return this.data
 	}
 	async fetchData(){
-		let articleId;
 		// for example, `/:id`
 		let id=window.location.pathname.split('/').slice(-1)[0];
-		articleId= /^\d+$/.test(id) ? id :0;
+		let articleId= /^\d+$/.test(id) ? id :0;
 
-		let {data} =await axios.get(`/api/get`,{
-			params:{
-				id:articleId
-			}
-		})
+		let {data} =await axios.get(`/api/articles/${articleId}`)
 		let indexData= articleId==0? data.indexData :[data.indexData]
 		if(indexData.length==0){
 			indexData=[{

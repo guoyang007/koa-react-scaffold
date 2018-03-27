@@ -6,8 +6,8 @@ router.get('/',async (ctx,next)=>{
 	await next()
 })
 
-router.get('/api/get',async(ctx,next)=>{
-	const {id}=ctx.request.query;
+router.get('/api/articles/:id',async(ctx,next)=>{
+	const {id}=ctx.params;
 	let response={}
 	await dbFn.get(id)
 	.then(data=>{
@@ -19,7 +19,7 @@ router.get('/api/get',async(ctx,next)=>{
 	await next()
 })
 
-router.post('/api/add',async(ctx,next)=>{
+router.post('/api/articles',async(ctx,next)=>{
 	// ctx.request.body
 })
 

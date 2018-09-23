@@ -2,6 +2,9 @@
 
 * **supports ES6 in all files, whether the webpack config file or node files**
 
+### Task
+
+* support SSR
 
 #### a complete application
 
